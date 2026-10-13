@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos | Caviahue - Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ENCABEZADO DE DESTINOS */
+        .destinos-hero {
+            min-height: 490px;
+            position: relative;
+            background:
+                linear-gradient(rgba(9, 37, 57, .35), rgba(9, 37, 57, .55)),
+                url('img/fondo-caviahue.jpeg') center 50% / cover no-repeat;
+        }
+
+        .destinos-hero .header {
+            min-height: 125px;
+        }
+
+        .destinos-intro {
+            text-align: center;
+            padding: 50px 20px 75px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destinos-intro .script-line {
+            margin: 0 0 8px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+        }
+
+        .destinos-intro h1 {
+            margin: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(48px, 7vw, 82px);
+            font-weight: 400;
+            letter-spacing: 8px;
+        }
+
+        .destinos-intro p {
+            max-width: 680px;
+            margin: 22px auto 0;
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CONTENIDO */
+        .destinos-main {
+            padding: 75px 7%;
+            background: #f7f8f7;
+            color: #253d46;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            display: block;
+            font-family: 'Great Vibes', cursive;
+            color: #57858a;
+            font-size: 35px;
+        }
+
+        .section-heading h2 {
+            margin: 5px 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #66777c;
+        }
+
+        /* TARJETAS */
+        .destinos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .destino-card {
+            overflow: hidden;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(25, 54, 64, .08);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .destino-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(25, 54, 64, .14);
+        }
+
+        .destino-img {
+            width: 100%;
+            height: 240px;
+            display: block;
+            object-fit: cover;
+            background: #d9e5e8;
+        }
+
+        .destino-info {
+            padding: 25px 24px 28px;
+        }
+
+        .destino-category {
+            color: #6b9998;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .destino-info h3 {
+            margin: 10px 0 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .destino-info p {
+            margin: 0;
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .destino-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding-bottom: 5px;
+            color: #28636a;
+            border-bottom: 1px solid #8cadaa;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color .2s;
+        }
+
+        .destino-link:hover {
+            color: #152f36;
+        }
+
+        /* SECCIÓN INFERIOR */
+        .destinos-banner {
+            padding: 65px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(19, 57, 69, .78), rgba(19, 57, 69, .78)),
+                url('img/lago-caviahue.jpg') center / cover no-repeat;
+        }
+
+        .destinos-banner h2 {
+            margin: 0 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 400;
+        }
+
+        .destinos-banner p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .destinos-banner a {
+            display: inline-block;
+            padding: 14px 27px;
+            border: 1px solid white;
+            border-radius: 30px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: background .2s, color .2s;
+        }
+
+        .destinos-banner a:hover {
+            background: white;
+            color: #244e58;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            padding: 30px 20px;
+            background: #173640;
+            color: white;
+            text-align: center;
+        }
+
+        .footer strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+
+        .footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #d0dcde;
+        }
+
+        @media (max-width: 900px) {
+            .destinos-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .destinos-main {
+                padding: 60px 5%;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .destinos-hero {
+                min-height: 450px;
+                background-position: center;
+            }
+
+            .destinos-intro {
+                padding: 65px 18px 70px;
+            }
+
+            .destinos-intro .script-line {
+                font-size: 35px;
+            }
+
+            .destinos-intro h1 {
+                font-size: clamp(38px, 10vw, 58px);
+                letter-spacing: 4px;
+            }
+
+            .destinos-intro p {
+                font-size: 15px;
+            }
+
+            .destinos-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .destino-img {
+                height: 230px;
+            }
+
+            .section-heading {
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="destinos-hero">
+
+        <div class="overlay"></div>
+
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a class="active" href="destinos.html">Destinos</a>
+                <a href="actividades.html">Actividades</a>
+                <a href="alojamiento.html">Alojamiento</a>
+                <a href="gastronomia.html">Gastronomía</a>
+                <a href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel"
+                onsubmit="event.preventDefault(); alert('Próximamente: búsqueda de destinos.');">
+                <input type="search" placeholder="¿Qué querés descubrir?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <div class="destinos-intro">
+            <div class="script-line">Lugares que enamoran</div>
+            <h1>DESTINOS</h1>
+            <p>
+                Descubrí los paisajes más increíbles de Caviahue y Copahue.
+                Montañas, lagos, bosques y rincones únicos de la Patagonia
+                te esperan durante todo el año.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- PRINCIPALES LUGARES -->
+    <main class="destinos-main">
+
+        <section class="section-heading">
+            <span>Naturaleza en estado puro</span>
+            <h2>Descubrí nuestros lugares</h2>
+            <p>
+                Cada rincón tiene algo especial. Explorá los principales
+                atractivos naturales de la región y encontrá tu próxima
+                aventura.
+            </p>
+        </section>
+
+        <section class="destinos-grid">
+
+            <!-- LAGO CAVIAHUE -->
+            <article class="destino-card" id="lago">
+                <img class="destino-img"
+                    src="img/lago-caviahue.jpeg"
+                    alt="Paisaje del lago Caviahue">
+
+                <div class="destino-info">
+                    <span class="destino-category">Agua y montaña</span>
+                    <h3>Lago Caviahue</h3>
+                    <p>
+                        Un lago rodeado de montañas y bosques de araucarias,
+                        ideal para disfrutar del paisaje, sacar fotografías
+                        y conectarse con la naturaleza.
+                    </p>
+                    <a class="destino-link" href="#lago">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- VOLCÁN COPAHUE -->
+            <article class="destino-card">
+                <img class="destino-img"
+                    src="img/volcan-copahue.jpeg"
+                    alt="Volcán Copahue">
+
+                <div class="destino-info">
+                    <span class="destino-category">Paisajes volcánicos</span>
+                    <h3>Volcán Copahue</h3>
+                    <p>
+                        Un imponente paisaje de origen volcánico que forma
+                        parte de la identidad de la región. Antes de visitarlo,
+                        consultá las condiciones de acceso y seguridad.
+                    </p>
+                    <a class="destino-link" href="actividades.html">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- SALTO DEL AGRIO -->
+            <article class="destino-card">
+                <img class="destino-img"
+                    src="img/Salto.jpeg"
+                    alt="Cascada Salto del Agrio">
+
+                <div class="destino-info">
+                    <span class="destino-category">Cascadas</span>
+                    <h3>Salto del Agrio</h3>
+                    <p>
+                        Una impresionante cascada entre formaciones rocosas
+                        de colores intensos. Es uno de los paisajes más
+                        conocidos y fotografiados de la zona.
+                    </p>
+                    <a class="destino-link" href="actividades.html">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- BOSQUE DE ARAUCARIAS -->
+            <article class="destino-card" id="flora-fauna">
+                <img class="destino-img"
+                    src="img/bosque.jpeg"
+                    alt="Bosque de araucarias">
+
+                <div class="destino-info">
+                    <span class="destino-category">Flora autóctona</span>
+                    <h3>Bosque de araucarias</h3>
+                    <p>
+                        Bosques de pehuenes, árboles emblemáticos de la
+                        Patagonia, que crean un entorno natural ideal para
+                        contemplar la biodiversidad del lugar.
+                    </p>
+                    <a class="destino-link" href="actividades.html">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- COPAHUE -->
+            <article class="destino-card">
+                <img class="destino-img"
+                    src="img/copahue.jpeg"
+                    alt="Paisaje de Copahue">
+
+                <div class="destino-info">
+                    <span class="destino-category">Termas y bienestar</span>
+                    <h3>Copahue</h3>
+                    <p>
+                        Una localidad reconocida por sus aguas termales
+                        y su entorno natural. Un destino para descansar,
+                        conocer el paisaje y disfrutar del bienestar.
+                    </p>
+                    <a class="destino-link" href="actividades.html#termas">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- MONTAÑAS -->
+            <article class="destino-card">
+                <img class="destino-img"
+                    src="img/montañas.jpeg"
+                    alt="Montañas nevadas de Caviahue">
+
+                <div class="destino-info">
+                    <span class="destino-category">Aventura y nieve</span>
+                    <h3>Montañas de Caviahue</h3>
+                    <p>
+                        Montañas, nieve y panorámicas increíbles que cambian
+                        con cada estación. Un entorno para disfrutar de
+                        actividades al aire libre según la época del año.
+                    </p>
+                    <a class="destino-link" href="actividades.html">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- INVITACIÓN FINAL -->
+    <section class="destinos-banner">
+        <h2>Tu próxima aventura empieza acá</h2>
+        <p>
+            Prepará tu visita y descubrí todo lo que Caviahue y sus
+            alrededores tienen para ofrecerte, en cualquier época del año.
+        </p>
+        <a href="como-llegar.html">CÓMO LLEGAR →</a>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <strong>CAVIAHUE</strong>
+        <p>NEUQUÉN · PATAGONIA ARGENTINA</p>
+        <p>Un lugar para conectar con la naturaleza.</p>
+    </footer>
+
+</body>
+</html>

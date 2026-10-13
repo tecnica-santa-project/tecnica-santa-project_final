@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo llegar | Caviahue - Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* PORTADA */
+        .route-hero {
+            min-height: 470px;
+            position: relative;
+            background:
+                linear-gradient(rgba(25, 34, 29, .35), rgba(25, 34, 29, .58)),
+                url('img/fondo-caviahue.jpeg') center / cover no-repeat;
+        }
+
+        .route-intro {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 45px 20px 75px;
+            color: white;
+        }
+
+        .route-intro .script-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 43px;
+            margin: 0 0 8px;
+        }
+
+        .route-intro h1 {
+            margin: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(43px, 6vw, 76px);
+            letter-spacing: 7px;
+        }
+
+        .route-intro p {
+            max-width: 680px;
+            margin: 22px auto 0;
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .route-main {
+            background: #f7f8f7;
+            color: #29444c;
+            padding: 70px 7%;
+        }
+
+        .route-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+        }
+
+        .route-heading span {
+            color: #8b9b77;
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+        }
+
+        .route-heading h2 {
+            margin: 8px 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .route-heading p {
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS DE ACCESO */
+        .route-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .route-card {
+            overflow: hidden;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(25, 54, 64, .08);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .route-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(25, 54, 64, .14);
+        }
+
+        .route-card img {
+            display: block;
+            width: 100%;
+            height: 235px;
+            object-fit: cover;
+            background: #e0e4d9;
+        }
+
+        .route-info {
+            padding: 25px 24px 28px;
+        }
+
+        .route-category {
+            color: #84956d;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .route-info h3 {
+            margin: 10px 0 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .route-info p {
+            margin: 0;
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .route-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding-bottom: 5px;
+            color: #526c51;
+            border-bottom: 1px solid #a5b49b;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .route-link:hover {
+            color: #263c2b;
+        }
+
+        /* RECORRIDO HACIA CAVIAHUE */
+        .route-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e9eee6;
+            color: #34483b;
+        }
+
+        .route-feature img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 370px;
+            object-fit: cover;
+            background: #dce3d8;
+        }
+
+        .route-feature-content {
+            padding: 60px clamp(25px, 6vw, 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .route-feature-content > span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: #84956d;
+        }
+
+        .route-feature-content h2 {
+            margin: 10px 0 18px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .route-feature-content p {
+            color: #617368;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .route-feature-content a {
+            align-self: flex-start;
+            margin-top: 15px;
+            padding: 13px 23px;
+            background: #526c51;
+            color: white;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: background .2s;
+        }
+
+        .route-feature-content a:hover {
+            background: #344a35;
+        }
+
+        /* CONSEJOS PARA EL VIAJE */
+        .route-tips {
+            padding: 65px 7%;
+            background: white;
+            color: #34483b;
+            text-align: center;
+        }
+
+        .route-tips h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 35px;
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .route-tips > p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .tips-grid {
+            max-width: 1050px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tip-item {
+            padding: 25px 20px;
+            border: 1px solid #dfe6dc;
+        }
+
+        .tip-item .route-icon {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .tip-item h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 21px;
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .tip-item p {
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* UBICACIÓN EN EL MAPA */
+        .route-map {
+            padding: 65px 7%;
+            text-align: center;
+            background: #e9eee6;
+        }
+
+        .route-map h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .route-map p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #617368;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            border-radius: 30px;
+            background: #526c51;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: background .2s;
+        }
+
+        .map-button:hover {
+            background: #344a35;
+        }
+
+        .map-note {
+            margin-top: 18px !important;
+            font-size: 12px !important;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            padding: 30px 20px;
+            background: #173640;
+            color: white;
+            text-align: center;
+        }
+
+        .footer strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+
+        .footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #d0dcde;
+        }
+
+        /* TABLETS */
+        @media (max-width: 950px) {
+            .route-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .route-main {
+                padding: 55px 5%;
+            }
+        }
+
+        /* CELULARES */
+        @media (max-width: 760px) {
+            .route-hero {
+                min-height: 430px;
+                background-position: center;
+            }
+
+            .route-intro {
+                padding: 55px 18px 65px;
+            }
+
+            .route-intro .script-line {
+                font-size: 35px;
+            }
+
+            .route-intro h1 {
+                font-size: clamp(35px, 9vw, 55px);
+                letter-spacing: 3px;
+            }
+
+            .route-intro p {
+                font-size: 15px;
+            }
+
+            .route-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .route-card img {
+                height: 225px;
+            }
+
+            .route-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .route-feature img {
+                min-height: 250px;
+                height: 250px;
+            }
+
+            .route-feature-content {
+                padding: 40px 25px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .route-tips {
+                padding: 45px 6%;
+            }
+
+            .route-map {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="route-hero">
+
+        <div class="overlay"></div>
+
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a href="destinos.html">Destinos</a>
+                <a href="actividades.html">Actividades</a>
+                <a href="alojamiento.html">Alojamiento</a>
+                <a href="gastronomia.html">Gastronomía</a>
+                <a class="active" href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel"
+                onsubmit="event.preventDefault(); alert('Próximamente: búsqueda de información para tu viaje.');">
+                <input type="search" placeholder="¿Qué estás buscando?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <div class="route-intro">
+            <div class="script-line">El camino hacia la naturaleza</div>
+            <h1>CÓMO LLEGAR</h1>
+            <p>
+                Prepará tu viaje y descubrí cómo llegar a Caviahue,
+                un destino de montaña rodeado de lagos, bosques de
+                araucarias y paisajes únicos de la Patagonia.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- INFORMACIÓN PRINCIPAL -->
+    <main class="route-main">
+
+        <section class="route-heading">
+            <span>Tu aventura comienza acá</span>
+            <h2>Descubrí el camino a Caviahue</h2>
+            <p>
+                Caviahue se encuentra en el noroeste de la provincia
+                de Neuquén, en plena cordillera de los Andes y cerca
+                del volcán Copahue. Organizá tu recorrido y preparate
+                para disfrutar de los paisajes durante el viaje.
+            </p>
+        </section>
+
+        <section class="route-grid">
+
+            <!-- EN AUTO -->
+            <article class="route-card">
+                <img src="img/llegar-auto.jpeg"
+                    alt="Ruta entre montañas de la Patagonia">
+
+                <div class="route-info">
+                    <span class="route-category">Viaje por carretera</span>
+                    <h3>En auto</h3>
+                    <p>
+                        Viajar en auto te permite disfrutar de los
+                        paisajes y organizar tus propias paradas.
+                        Antes de salir, revisá las condiciones de las
+                        rutas, el combustible y el pronóstico del tiempo.
+                    </p>
+                    <a class="route-link"
+                        href="https://www.google.com/maps/search/?api=1&query=Caviahue%2C+Neuqu%C3%A9n%2C+Argentina"
+                        target="_blank" rel="noopener noreferrer">
+                        VER UBICACIÓN →
+                    </a>
+                </div>
+            </article>
+
+            <!-- DESDE NEUQUÉN -->
+            <article class="route-card">
+                <img src="img/llegar-neuquen.jpeg"
+                    alt="Paisaje de la provincia de Neuquén">
+
+                <div class="route-info">
+                    <span class="route-category">Punto de partida</span>
+                    <h3>Desde Neuquén capital</h3>
+                    <p>
+                        Desde la capital provincial podés organizar
+                        el recorrido por carretera hacia Caviahue.
+                        Planificá el tiempo de traslado y verificá
+                        las condiciones del camino antes de viajar.
+                    </p>
+                    <a class="route-link"
+                        href="https://www.google.com/maps/dir/Neuqu%C3%A9n/Caviahue/"
+                        target="_blank" rel="noopener noreferrer">
+                        CONSULTAR RECORRIDO →
+                    </a>
+                </div>
+            </article>
+
+            <!-- TRANSPORTE -->
+            <article class="route-card">
+                <img src="img/llegar-transporte.jpeg"
+                    alt="Transporte para viajar por la Patagonia">
+
+                <div class="route-info">
+                    <span class="route-category">Cómo organizarte</span>
+                    <h3>En transporte</h3>
+                    <p>
+                        Consultá las opciones de transporte disponibles
+                        hasta Caviahue o localidades cercanas. Los
+                        horarios, las frecuencias y las conexiones
+                        pueden variar según la temporada.
+                    </p>
+                    <a class="route-link"
+                        href="https://www.google.com/maps/search/?api=1&query=Terminal+de+%C3%93mnibus+Neuqu%C3%A9n"
+                        target="_blank" rel="noopener noreferrer">
+                        CONSULTAR UBICACIÓN →
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- RECORRIDO Y PAISAJES -->
+    <section class="route-feature" id="recorrido">
+
+        <img src="img/recorrido-caviahue.jpeg"
+            alt="Paisaje de montaña en el camino a Caviahue">
+
+        <div class="route-feature-content">
+            <span>Un viaje entre montañas</span>
+            <h2>El camino también es parte de la experiencia</h2>
+            <p>
+                Durante el recorrido hacia Caviahue vas a encontrar
+                paisajes característicos de la cordillera neuquina.
+                Las montañas, los bosques y los espacios naturales
+                hacen que el viaje sea parte de la aventura.
+            </p>
+            <p>
+                Organizá las paradas con anticipación y recordá
+                detenerte únicamente en lugares seguros y habilitados.
+            </p>
+            <a href="destinos.html">DESCUBRIR DESTINOS →</a>
+        </div>
+
+    </section>
+
+    <!-- CONSEJOS -->
+    <section class="route-tips">
+
+        <h2>Consejos antes de viajar</h2>
+        <p>
+            Una buena planificación ayuda a disfrutar del recorrido
+            y a prepararse para las condiciones de la montaña.
+        </p>
+
+        <div class="tips-grid">
+
+            <article class="tip-item">
+                <span class="route-icon">⌁</span>
+                <h3>Estado de las rutas</h3>
+                <p>
+                    Consultá los informes oficiales para conocer
+                    posibles cortes, desvíos o dificultades para circular.
+                </p>
+            </article>
+
+            <article class="tip-item">
+                <span class="route-icon">❄</span>
+                <h3>Clima de montaña</h3>
+                <p>
+                    En invierno puede haber nieve y hielo. Revisá
+                    el pronóstico y prepará el vehículo según las
+                    condiciones del camino.
+                </p>
+            </article>
+
+            <article class="tip-item">
+                <span class="route-icon">◇</span>
+                <h3>Planificá el viaje</h3>
+                <p>
+                    Organizá las paradas, el combustible, el descanso
+                    y los elementos necesarios para el recorrido.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- MAPA -->
+    <section class="route-map">
+
+        <h2>Encontrá Caviahue en el mapa</h2>
+        <p>
+            Consultá la ubicación del destino y obtené indicaciones
+            desde tu punto de partida para organizar el recorrido.
+        </p>
+
+        <a class="map-button"
+            href="https://www.google.com/maps/search/?api=1&query=Caviahue%2C+Neuqu%C3%A9n%2C+Argentina"
+            target="_blank" rel="noopener noreferrer">
+            VER EN GOOGLE MAPS →
+        </a>
+
+        <p class="map-note">
+            Antes de salir, verificá el estado de las rutas y las
+            condiciones climáticas.
+        </p>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <strong>CAVIAHUE</strong>
+        <p>NEUQUÉN · PATAGONIA ARGENTINA</p>
+        <p>Un lugar para conectar con la naturaleza.</p>
+    </footer>
+
+</body>
+</html>

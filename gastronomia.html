@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronomía | Caviahue - Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* PORTADA */
+        .food-hero {
+            min-height: 470px;
+            position: relative;
+            background:
+                linear-gradient(rgba(25, 34, 29, .35), rgba(25, 34, 29, .58)),
+                url('img/fondo-caviahue.jpeg') center / cover no-repeat;
+        }
+
+        .food-intro {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 45px 20px 75px;
+        }
+
+        .food-intro .script-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 43px;
+            margin: 0 0 8px;
+        }
+
+        .food-intro h1 {
+            margin: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(43px, 6vw, 76px);
+            letter-spacing: 7px;
+        }
+
+        .food-intro p {
+            max-width: 680px;
+            margin: 22px auto 0;
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .food-main {
+            background: #f7f8f7;
+            color: #29444c;
+            padding: 70px 7%;
+        }
+
+        .food-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+        }
+
+        .food-heading span {
+            color: #8b9b77;
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+        }
+
+        .food-heading h2 {
+            margin: 8px 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .food-heading p {
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS GASTRONÓMICAS */
+        .food-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .food-card {
+            overflow: hidden;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(25, 54, 64, .08);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(25, 54, 64, .14);
+        }
+
+        .food-card img {
+            display: block;
+            width: 100%;
+            height: 235px;
+            object-fit: cover;
+            background: #e0e4d9;
+        }
+
+        .food-info {
+            padding: 25px 24px 28px;
+        }
+
+        .food-category {
+            color: #84956d;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .food-info h3 {
+            margin: 10px 0 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .food-info p {
+            margin: 0;
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .food-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding-bottom: 5px;
+            color: #526c51;
+            border-bottom: 1px solid #a5b49b;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .food-link:hover {
+            color: #263c2b;
+        }
+
+        /* SABORES REGIONALES */
+        .regional-food {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e9eee6;
+            color: #34483b;
+        }
+
+        .regional-food img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 370px;
+            object-fit: cover;
+            background: #dce3d8;
+        }
+
+        .regional-content {
+            padding: 60px clamp(25px, 6vw, 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .regional-content > span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: #84956d;
+        }
+
+        .regional-content h2 {
+            margin: 10px 0 18px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .regional-content p {
+            color: #617368;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .regional-content a {
+            align-self: flex-start;
+            margin-top: 15px;
+            padding: 13px 23px;
+            background: #526c51;
+            color: white;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: background .2s;
+        }
+
+        .regional-content a:hover {
+            background: #344a35;
+        }
+
+        /* EXPERIENCIA GASTRONÓMICA */
+        .food-experience {
+            padding: 65px 7%;
+            background: white;
+            color: #34483b;
+            text-align: center;
+        }
+
+        .food-experience h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 35px;
+            font-weight: 400;
+            color: #405647;
+        }
+
+        .food-experience > p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .experience-grid {
+            max-width: 1050px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .experience-item {
+            padding: 25px 20px;
+            border: 1px solid #dfe6dc;
+        }
+
+        .experience-item .food-icon {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .experience-item h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 21px;
+            font-weight: 400;
+        }
+
+        .experience-item p {
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            padding: 30px 20px;
+            background: #173640;
+            color: white;
+            text-align: center;
+        }
+
+        .footer strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+
+        .footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #d0dcde;
+        }
+
+        /* TABLETS */
+        @media (max-width: 950px) {
+            .food-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .food-main {
+                padding: 55px 5%;
+            }
+        }
+
+        /* CELULARES */
+        @media (max-width: 760px) {
+            .food-hero {
+                min-height: 430px;
+                background-position: center;
+            }
+
+            .food-intro {
+                padding: 55px 18px 65px;
+            }
+
+            .food-intro .script-line {
+                font-size: 35px;
+            }
+
+            .food-intro h1 {
+                font-size: clamp(35px, 9vw, 55px);
+                letter-spacing: 3px;
+            }
+
+            .food-intro p {
+                font-size: 15px;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .food-card img {
+                height: 225px;
+            }
+
+            .regional-food {
+                grid-template-columns: 1fr;
+            }
+
+            .regional-food img {
+                min-height: 250px;
+                height: 250px;
+            }
+
+            .regional-content {
+                padding: 40px 25px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .food-experience {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="food-hero">
+
+        <div class="overlay"></div>
+
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a href="destinos.html">Destinos</a>
+                <a href="actividades.html">Actividades</a>
+                <a href="alojamiento.html">Alojamiento</a>
+                <a class="active" href="gastronomia.html">Gastronomía</a>
+                <a href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel"
+                onsubmit="event.preventDefault(); alert('Próximamente: búsqueda gastronómica.');">
+                <input type="search" placeholder="¿Qué te gustaría probar?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <div class="food-intro">
+            <div class="script-line">Sabores de la Patagonia</div>
+            <h1>GASTRONOMÍA</h1>
+            <p>
+                Descubrí los sabores de la región, disfrutá de la cocina
+                patagónica y compartí momentos únicos en el corazón
+                de la cordillera neuquina.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- PROPUESTAS GASTRONÓMICAS -->
+    <main class="food-main">
+
+        <section class="food-heading">
+            <span>Una experiencia para disfrutar</span>
+            <h2>Sabores que cuentan historias</h2>
+            <p>
+                La gastronomía de la Patagonia combina tradiciones,
+                productos regionales y propuestas para disfrutar
+                después de un día de aventura entre montañas y lagos.
+            </p>
+        </section>
+
+        <section class="food-grid">
+
+            <!-- COCINA PATAGÓNICA -->
+            <article class="food-card">
+                <img src="img/cocina-patagonica.jpeg"
+                    alt="Plato de cocina patagónica">
+
+                <div class="food-info">
+                    <span class="food-category">Tradición regional</span>
+                    <h3>Cocina patagónica</h3>
+                    <p>
+                        Conocé preparaciones inspiradas en las tradiciones
+                        de la Patagonia, con recetas que forman parte
+                        de la identidad gastronómica de la región.
+                    </p>
+                    <a class="food-link" href="#sabores">DESCUBRIR SABORES →</a>
+                </div>
+            </article>
+
+            <!-- CORDERO -->
+            <article class="food-card">
+                <img src="img/cordero-patagonico.jpeg"
+                    alt="Preparación tradicional de cordero patagónico">
+
+                <div class="food-info">
+                    <span class="food-category">Platos regionales</span>
+                    <h3>Cordero patagónico</h3>
+                    <p>
+                        Una preparación tradicional de la gastronomía
+                        del sur argentino que podés encontrar en
+                        establecimientos que ofrecen cocina regional.
+                    </p>
+                    <a class="food-link" href="#sabores">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- TRUCHA -->
+            <article class="food-card">
+                <img src="img/trucha.jpeg"
+                    alt="Plato de trucha preparada">
+
+                <div class="food-info">
+                    <span class="food-category">Sabores de montaña</span>
+                    <h3>Trucha</h3>
+                    <p>
+                        Descubrí distintas preparaciones de este pescado,
+                        presente en propuestas gastronómicas de
+                        diferentes localidades patagónicas.
+                    </p>
+                    <a class="food-link" href="#sabores">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- CHOCOLATE -->
+            <article class="food-card">
+                <img src="img/chocolate.jpeg"
+                    alt="Chocolates artesanales">
+
+                <div class="food-info">
+                    <span class="food-category">Dulces regionales</span>
+                    <h3>Chocolate artesanal</h3>
+                    <p>
+                        Una opción ideal para acompañar una tarde fría.
+                        Explorá las chocolaterías y las propuestas dulces
+                        que puedas encontrar durante tu visita.
+                    </p>
+                    <a class="food-link" href="#sabores">PARA LOS MÁS DULCEROS →</a>
+                </div>
+            </article>
+
+            <!-- PASTELERÍA -->
+            <article class="food-card">
+                <img src="img/pasteleria.jpeg"
+                    alt="Pastelería y tortas">
+
+                <div class="food-info">
+                    <span class="food-category">Cafés y meriendas</span>
+                    <h3>Pastelería regional</h3>
+                    <p>
+                        Disfrutá de tortas, tartas y otras opciones dulces
+                        para hacer una pausa y recuperar energías
+                        después de recorrer los paisajes.
+                    </p>
+                    <a class="food-link" href="#sabores">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- BEBIDAS CALIENTES -->
+            <article class="food-card">
+                <img src="img/meriendas.jpeg"
+                    alt="Café caliente en un ambiente acogedor">
+
+                <div class="food-info">
+                    <span class="food-category">Momentos de descanso</span>
+                    <h3>Cafeterías y meriendas</h3>
+                    <p>
+                        Encontrá un lugar acogedor para disfrutar
+                        de una bebida caliente, conversar y contemplar
+                        el ambiente tranquilo de la montaña.
+                    </p>
+                    <a class="food-link" href="#experiencia">VIVIR EL MOMENTO →</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- SABORES REGIONALES -->
+    <section class="regional-food" id="sabores">
+
+        <img src="img/productos-regionales.jpeg"
+            alt="Productos y sabores regionales">
+
+        <div class="regional-content">
+            <span>Tradición en cada plato</span>
+            <h2>Los sabores de nuestra tierra</h2>
+            <p>
+                La gastronomía patagónica refleja la relación entre
+                sus habitantes y el entorno natural. Las recetas
+                tradicionales, los productos regionales y la cocina
+                de montaña forman parte de la experiencia de viajar
+                por Neuquén.
+            </p>
+            <p>
+                Durante tu visita, consultá los menús y las propuestas
+                disponibles en cada establecimiento para descubrir
+                los sabores locales.
+            </p>
+            <a href="destinos.html">EXPLORAR CAVIAHUE →</a>
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="food-experience" id="experiencia">
+
+        <h2>Disfrutá cada momento</h2>
+        <p>
+            Comer también es una forma de conocer un lugar.
+            Hacé una pausa, probá nuevas preparaciones y disfrutá
+            de la hospitalidad patagónica durante tu estadía.
+        </p>
+
+        <div class="experience-grid">
+
+            <article class="experience-item">
+                <span class="food-icon">♧</span>
+                <h3>Productos regionales</h3>
+                <p>
+                    Prestá atención a los ingredientes y las
+                    preparaciones típicas que ofrecen los comercios
+                    gastronómicos de la zona.
+                </p>
+            </article>
+
+            <article class="experience-item">
+                <span class="food-icon">⌂</span>
+                <h3>Lugares acogedores</h3>
+                <p>
+                    Elegí espacios donde puedas descansar y compartir
+                    una comida después de conocer los atractivos
+                    naturales de Caviahue.
+                </p>
+            </article>
+
+            <article class="experience-item">
+                <span class="food-icon">♡</span>
+                <h3>Momentos para compartir</h3>
+                <p>
+                    Disfrutá de una buena comida con familia o amigos
+                    y llevate nuevos recuerdos de tu viaje.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <strong>CAVIAHUE</strong>
+        <p>NEUQUÉN · PATAGONIA ARGENTINA</p>
+        <p>Un lugar para conectar con la naturaleza.</p>
+    </footer>
+
+</body>
+</html>

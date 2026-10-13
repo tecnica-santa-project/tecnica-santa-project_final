@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades | Caviahue - Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* PORTADA */
+        .activities-hero {
+            min-height: 470px;
+            position: relative;
+            background:
+                linear-gradient(rgba(8, 36, 53, .35), rgba(8, 36, 53, .58)),
+                url('img/fondo-caviahue.jpeg') center / cover no-repeat;
+        }
+
+        .activities-intro {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 45px 20px 75px;
+        }
+
+        .activities-intro .script-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 43px;
+            margin: 0 0 8px;
+        }
+
+        .activities-intro h1 {
+            margin: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(43px, 6vw, 76px);
+            letter-spacing: 7px;
+        }
+
+        .activities-intro p {
+            max-width: 680px;
+            margin: 22px auto 0;
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* INTRODUCCIÓN */
+        .activities-main {
+            background: #f7f8f7;
+            color: #29444c;
+            padding: 70px 7%;
+        }
+
+        .activities-heading {
+            text-align: center;
+            margin: 0 auto 45px;
+            max-width: 760px;
+        }
+
+        .activities-heading span {
+            color: #63918f;
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+        }
+
+        .activities-heading h2 {
+            margin: 8px 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(30px, 4vw, 43px);
+            color: #294d58;
+        }
+
+        .activities-heading p {
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS */
+        .activities-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .activity-card {
+            background: #fff;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(25, 54, 64, .08);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(25, 54, 64, .14);
+        }
+
+        .activity-card img {
+            display: block;
+            width: 100%;
+            height: 235px;
+            object-fit: cover;
+            background: #dce6e7;
+        }
+
+        .activity-content {
+            padding: 25px 24px 28px;
+        }
+
+        .activity-category {
+            color: #63918f;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .activity-content h3 {
+            margin: 10px 0 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .activity-content p {
+            margin: 0;
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .activity-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding-bottom: 5px;
+            color: #28636a;
+            border-bottom: 1px solid #8cadaa;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .activity-link:hover {
+            color: #152f36;
+        }
+
+        /* TERMAS */
+        .wellness {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e8efec;
+            color: #29444c;
+        }
+
+        .wellness img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            background: #dce6e7;
+        }
+
+        .wellness-content {
+            padding: 65px clamp(25px, 6vw, 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wellness-content span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: #63918f;
+        }
+
+        .wellness-content h2 {
+            margin: 10px 0 18px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .wellness-content p {
+            color: #617378;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .wellness-content a {
+            align-self: flex-start;
+            margin-top: 15px;
+            padding: 13px 23px;
+            background: #285e65;
+            color: white;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: background .2s;
+        }
+
+        .wellness-content a:hover {
+            background: #183e45;
+        }
+
+        /* RECOMENDACIONES */
+        .activity-tips {
+            padding: 65px 7%;
+            background: #fff;
+            color: #29444c;
+            text-align: center;
+        }
+
+        .activity-tips h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 35px;
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .tips-grid {
+            max-width: 1050px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .tip {
+            padding: 25px 20px;
+            border: 1px solid #dce6e3;
+        }
+
+        .tip .tip-icon {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .tip h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 21px;
+            font-weight: 400;
+        }
+
+        .tip p {
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            padding: 30px 20px;
+            background: #173640;
+            color: white;
+            text-align: center;
+        }
+
+        .footer strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+
+        .footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #d0dcde;
+        }
+
+        /* ADAPTACIÓN A TABLETS */
+        @media (max-width: 950px) {
+            .activities-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .activities-main {
+                padding: 55px 5%;
+            }
+        }
+
+        /* ADAPTACIÓN A CELULARES */
+        @media (max-width: 760px) {
+            .activities-hero {
+                min-height: 430px;
+                background-position: center;
+            }
+
+            .activities-intro {
+                padding: 55px 18px 65px;
+            }
+
+            .activities-intro .script-line {
+                font-size: 35px;
+            }
+
+            .activities-intro h1 {
+                font-size: clamp(35px, 9vw, 55px);
+                letter-spacing: 3px;
+            }
+
+            .activities-intro p {
+                font-size: 15px;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .activity-card img {
+                height: 225px;
+            }
+
+            .wellness {
+                grid-template-columns: 1fr;
+            }
+
+            .wellness img {
+                min-height: 250px;
+                height: 250px;
+            }
+
+            .wellness-content {
+                padding: 40px 25px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .activity-tips {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="activities-hero">
+
+        <div class="overlay"></div>
+
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a href="destinos.html">Destinos</a>
+                <a class="active" href="actividades.html">Actividades</a>
+                <a href="alojamiento.html">Alojamiento</a>
+                <a href="gastronomia.html">Gastronomía</a>
+                <a href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel"
+                onsubmit="event.preventDefault(); alert('Próximamente: búsqueda de actividades.');">
+                <input type="search" placeholder="¿Qué querés descubrir?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <div class="activities-intro">
+            <div class="script-line">Viví la aventura</div>
+            <h1>ACTIVIDADES</h1>
+            <p>
+                Naturaleza, aventura y descanso en un solo lugar.
+                Descubrí todo lo que podés hacer en Caviahue
+                durante las cuatro estaciones del año.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- ACTIVIDADES PRINCIPALES -->
+    <main class="activities-main">
+
+        <section class="activities-heading">
+            <span>Experiencias para recordar</span>
+            <h2>Explorá Caviahue a tu manera</h2>
+            <p>
+                Desde caminatas entre araucarias hasta aventuras en la nieve,
+                encontrá actividades para disfrutar de los paisajes
+                patagónicos y vivir una experiencia inolvidable.
+            </p>
+        </section>
+
+        <section class="activities-grid">
+
+            <!-- SENDERISMO -->
+            <article class="activity-card">
+                <img src="img/senderismo.jpeg"
+                    alt="Senderos entre montañas y bosques">
+
+                <div class="activity-content">
+                    <span class="activity-category">Naturaleza</span>
+                    <h3>Senderismo</h3>
+                    <p>
+                        Recorré senderos rodeados de bosques de araucarias,
+                        montañas y paisajes naturales. Hay recorridos de
+                        distintas dificultades para explorar la región.
+                    </p>
+                    <a class="activity-link" href="destinos.html">EXPLORAR LUGARES →</a>
+                </div>
+            </article>
+
+            <!-- NIEVE -->
+            <article class="activity-card">
+                <img src="img/deportes-de-nieve.jpeg"
+                    alt="Actividades de invierno en la nieve">
+
+                <div class="activity-content">
+                    <span class="activity-category">Invierno</span>
+                    <h3>Deportes de nieve</h3>
+                    <p>
+                        Disfrutá de la temporada invernal con propuestas
+                        como esquí y snowboard cuando las condiciones
+                        de nieve y los servicios estén habilitados.
+                    </p>
+                    <a class="activity-link" href="destinos.html">DESCUBRIR MÁS →</a>
+                </div>
+            </article>
+
+            <!-- TERMAS -->
+            <article class="activity-card" id="termas">
+                <img src="img/termas.jpeg"
+                    alt="Aguas termales de Copahue">
+
+                <div class="activity-content">
+                    <span class="activity-category">Bienestar</span>
+                    <h3>Termas de Copahue</h3>
+                    <p>
+                        Conocé las aguas termales y las propuestas de
+                        bienestar de Copahue. Consultá previamente
+                        la temporada de funcionamiento y los servicios.
+                    </p>
+                    <a class="activity-link" href="#bienestar">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- FOTOGRAFÍA -->
+            <article class="activity-card">
+                <img src="img/naturaleza.jpeg"
+                    alt="Paisajes naturales de Caviahue">
+
+                <div class="activity-content">
+                    <span class="activity-category">Paisajes</span>
+                    <h3>Fotografía de naturaleza</h3>
+                    <p>
+                        Capturá lagos, montañas, cascadas y bosques.
+                        Cada estación transforma los colores del paisaje
+                        y ofrece nuevas vistas para fotografiar.
+                    </p>
+                    <a class="activity-link" href="destinos.html">VER DESTINOS →</a>
+                </div>
+            </article>
+
+            <!-- EXCURSIONES -->
+            <article class="activity-card">
+                <img src="img/excursiones.jpeg"
+                    alt="Excursiones por la Patagonia">
+
+                <div class="activity-content">
+                    <span class="activity-category">Exploración</span>
+                    <h3>Excursiones</h3>
+                    <p>
+                        Descubrí los atractivos de Caviahue y sus
+                        alrededores mediante recorridos guiados
+                        y excursiones habilitadas en la región.
+                    </p>
+                    <a class="activity-link" href="destinos.html">VER DESTINOS →</a>
+                </div>
+            </article>
+
+            <!-- LAGO -->
+            <article class="activity-card">
+                <img src="img/disfrutar-lago.jpeg"
+                    alt="Lago Caviahue y sus alrededores">
+
+                <div class="activity-content">
+                    <span class="activity-category">Aire libre</span>
+                    <h3>Disfrutar del lago</h3>
+                    <p>
+                        Contemplá el lago Caviahue, disfrutá de sus
+                        paisajes y conocé los espacios habilitados
+                        para realizar actividades al aire libre.
+                    </p>
+                    <a class="activity-link" href="destinos.html#lago">CONOCER EL LAGO →</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- BIENESTAR -->
+    <section class="wellness" id="bienestar">
+
+        <img src="img/entorno-zona-termal.jpeg"
+            alt="Entorno natural de la zona termal">
+
+        <div class="wellness-content">
+            <span>Tiempo para vos</span>
+            <h2>Descanso y bienestar</h2>
+            <p>
+                Caviahue y Copahue también invitan a bajar el ritmo.
+                Sus paisajes, aguas termales y entornos naturales
+                ofrecen una oportunidad para desconectarse de la rutina
+                y disfrutar de momentos de tranquilidad.
+            </p>
+            <p>
+                Antes de organizar tu visita, verificá las fechas de
+                apertura, los servicios disponibles y las recomendaciones
+                de las autoridades locales.
+            </p>
+            <a href="destinos.html">DESCUBRÍ COPAHUE →</a>
+        </div>
+
+    </section>
+
+    <!-- CONSEJOS PARA VISITANTES -->
+    <section class="activity-tips">
+
+        <h2>Prepará tu experiencia</h2>
+
+        <div class="tips-grid">
+
+            <article class="tip">
+                <span class="tip-icon">♧</span>
+                <h3>Respetá la naturaleza</h3>
+                <p>
+                    Mantené limpios los senderos, llevá tus residuos
+                    y cuidá la flora y fauna autóctonas.
+                </p>
+            </article>
+
+            <article class="tip">
+                <span class="tip-icon">◇</span>
+                <h3>Elegí tu temporada</h3>
+                <p>
+                    Las actividades cambian según el clima.
+                    Consultá las condiciones antes de viajar.
+                </p>
+            </article>
+
+            <article class="tip">
+                <span class="tip-icon">⌁</span>
+                <h3>Priorizá la seguridad</h3>
+                <p>
+                    Informate sobre los accesos, el estado de los caminos
+                    y las recomendaciones para cada excursión.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <strong>CAVIAHUE</strong>
+        <p>NEUQUÉN · PATAGONIA ARGENTINA</p>
+        <p>Un lugar para conectar con la naturaleza.</p>
+    </footer>
+
+</body>
+</html>

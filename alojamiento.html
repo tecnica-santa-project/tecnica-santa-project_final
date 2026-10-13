@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alojamiento | Caviahue - Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* PORTADA */
+        .stay-hero {
+            min-height: 470px;
+            position: relative;
+            background:
+                linear-gradient(rgba(8, 36, 53, .35), rgba(8, 36, 53, .58)),
+                url('img/fondo-caviahue.jpeg') center / cover no-repeat;
+        }
+
+        .stay-intro {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 45px 20px 75px;
+        }
+
+        .stay-intro .script-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 43px;
+            margin: 0 0 8px;
+        }
+
+        .stay-intro h1 {
+            margin: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: clamp(43px, 6vw, 76px);
+            letter-spacing: 7px;
+        }
+
+        .stay-intro p {
+            max-width: 680px;
+            margin: 22px auto 0;
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .stay-main {
+            background: #f7f8f7;
+            color: #29444c;
+            padding: 70px 7%;
+        }
+
+        .stay-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+        }
+
+        .stay-heading span {
+            color: #63918f;
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+        }
+
+        .stay-heading h2 {
+            margin: 8px 0 15px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .stay-heading p {
+            color: #68787d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS */
+        .stay-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .stay-card {
+            overflow: hidden;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(25, 54, 64, .08);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .stay-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(25, 54, 64, .14);
+        }
+
+        .stay-card img {
+            display: block;
+            width: 100%;
+            height: 235px;
+            object-fit: cover;
+            background: #dce6e7;
+        }
+
+        .stay-info {
+            padding: 25px 24px 28px;
+        }
+
+        .stay-category {
+            color: #63918f;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .stay-info h3 {
+            margin: 10px 0 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .stay-info p {
+            margin: 0;
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .stay-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding-bottom: 5px;
+            color: #28636a;
+            border-bottom: 1px solid #8cadaa;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .stay-link:hover {
+            color: #152f36;
+        }
+
+        /* SECCIÓN DESTACADA */
+        .stay-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e8efec;
+            color: #29444c;
+        }
+
+        .stay-feature img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 370px;
+            object-fit: cover;
+            background: #dce6e7;
+        }
+
+        .stay-feature-content {
+            padding: 60px clamp(25px, 6vw, 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stay-feature-content > span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: #63918f;
+        }
+
+        .stay-feature-content h2 {
+            margin: 10px 0 18px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .stay-feature-content p {
+            color: #617378;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .stay-feature-content a {
+            align-self: flex-start;
+            margin-top: 15px;
+            padding: 13px 23px;
+            background: #285e65;
+            color: white;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: background .2s;
+        }
+
+        .stay-feature-content a:hover {
+            background: #183e45;
+        }
+
+        /* CONSEJOS */
+        .stay-tips {
+            padding: 65px 7%;
+            background: white;
+            color: #29444c;
+            text-align: center;
+        }
+
+        .stay-tips h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 35px;
+            font-weight: 400;
+            color: #294d58;
+        }
+
+        .stay-tips-grid {
+            max-width: 1050px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .stay-tip {
+            padding: 25px 20px;
+            border: 1px solid #dce6e3;
+        }
+
+        .stay-tip .tip-icon {
+            display: block;
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .stay-tip h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 21px;
+            font-weight: 400;
+        }
+
+        .stay-tip p {
+            color: #68787d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            padding: 30px 20px;
+            background: #173640;
+            color: white;
+            text-align: center;
+        }
+
+        .footer strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+
+        .footer p {
+            margin: 10px 0 0;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #d0dcde;
+        }
+
+        /* TABLETS */
+        @media (max-width: 950px) {
+            .stay-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .stay-main {
+                padding: 55px 5%;
+            }
+        }
+
+        /* CELULARES */
+        @media (max-width: 760px) {
+            .stay-hero {
+                min-height: 430px;
+                background-position: center;
+            }
+
+            .stay-intro {
+                padding: 55px 18px 65px;
+            }
+
+            .stay-intro .script-line {
+                font-size: 35px;
+            }
+
+            .stay-intro h1 {
+                font-size: clamp(35px, 9vw, 55px);
+                letter-spacing: 3px;
+            }
+
+            .stay-intro p {
+                font-size: 15px;
+            }
+
+            .stay-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .stay-card img {
+                height: 225px;
+            }
+
+            .stay-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .stay-feature img {
+                min-height: 250px;
+                height: 250px;
+            }
+
+            .stay-feature-content {
+                padding: 40px 25px;
+            }
+
+            .stay-tips-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stay-tips {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="stay-hero">
+
+        <div class="overlay"></div>
+
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a href="index.html">Inicio</a>
+                <a href="destinos.html">Destinos</a>
+                <a href="actividades.html">Actividades</a>
+                <a class="active" href="alojamiento.html">Alojamiento</a>
+                <a href="gastronomia.html">Gastronomía</a>
+                <a href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel"
+                onsubmit="event.preventDefault(); alert('Próximamente: búsqueda de alojamientos.');">
+                <input type="search" placeholder="¿Dónde querés alojarte?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <div class="stay-intro">
+            <div class="script-line">Tu refugio en la Patagonia</div>
+            <h1>ALOJAMIENTO</h1>
+            <p>
+                Encontrá el lugar ideal para descansar y disfrutar
+                de la naturaleza, con la tranquilidad y el encanto
+                de Caviahue y sus alrededores.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- TIPOS DE ALOJAMIENTO -->
+    <main class="stay-main">
+
+        <section class="stay-heading">
+            <span>Descansá a tu manera</span>
+            <h2>Encontrá tu lugar ideal</h2>
+            <p>
+                Hay distintas alternativas para disfrutar de tu estadía:
+                desde cabañas rodeadas de naturaleza hasta hoteles,
+                hosterías y departamentos para compartir con familia
+                o amigos.
+            </p>
+        </section>
+
+        <section class="stay-grid">
+
+            <!-- CABAÑAS -->
+            <article class="stay-card">
+                <img src="img/cabanas.jpeg"
+                    alt="Cabañas rodeadas de naturaleza">
+
+                <div class="stay-info">
+                    <span class="stay-category">Naturaleza y tranquilidad</span>
+                    <h3>Cabañas</h3>
+                    <p>
+                        Una opción acogedora para disfrutar de la montaña
+                        con más independencia. Ideales para viajes en
+                        familia, en pareja o con amigos.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- HOTELES -->
+            <article class="stay-card">
+                <img src="img/hoteles.jpeg"
+                    alt="Hotel en un entorno de montaña">
+
+                <div class="stay-info">
+                    <span class="stay-category">Comodidad y servicios</span>
+                    <h3>Hoteles</h3>
+                    <p>
+                        Alternativas para quienes buscan comodidad,
+                        habitaciones equipadas y servicios que acompañen
+                        su visita a la Patagonia.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- HOSTERÍAS -->
+            <article class="stay-card">
+                <img src="img/hosterias.jpeg"
+                    alt="Hostería de montaña">
+
+                <div class="stay-info">
+                    <span class="stay-category">Calidez y descanso</span>
+                    <h3>Hosterías</h3>
+                    <p>
+                        Espacios de ambiente tranquilo para descansar
+                        después de recorrer los paisajes, senderos
+                        y atractivos de la región.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- DEPARTAMENTOS -->
+            <article class="stay-card">
+                <img src="img/departamentos.jpeg"
+                    alt="Departamento equipado para visitantes">
+
+                <div class="stay-info">
+                    <span class="stay-category">Independencia</span>
+                    <h3>Departamentos</h3>
+                    <p>
+                        Una alternativa práctica para organizar tu viaje
+                        con libertad y contar con espacios propios
+                        durante la estadía.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- ALOJAMIENTOS FAMILIARES -->
+            <article class="stay-card">
+                <img src="img/opciones-familiares.jpeg"
+                    alt="Alojamiento para grupos y familias">
+
+                <div class="stay-info">
+                    <span class="stay-category">Para compartir</span>
+                    <h3>Opciones familiares</h3>
+                    <p>
+                        Buscá espacios que se adapten a la cantidad
+                        de personas, las necesidades del grupo
+                        y la duración de tu visita.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+            <!-- COPAHUE -->
+            <article class="stay-card">
+                <img src="img/alojamiento.jpeg"
+                    alt="Alojamiento en la zona de Copahue">
+
+                <div class="stay-info">
+                    <span class="stay-category">Cerca de las termas</span>
+                    <h3>Alojamiento en Copahue</h3>
+                    <p>
+                        Si tu plan es conocer el centro termal,
+                        consultá las opciones disponibles y las fechas
+                        de apertura antes de organizar tu viaje.
+                    </p>
+                    <a class="stay-link" href="#consejos">CONOCER MÁS →</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- DESTACADO -->
+    <section class="stay-feature">
+
+        <img src="img/refugio.jpeg"
+            alt="Refugio rodeado por el paisaje patagónico">
+
+        <div class="stay-feature-content">
+            <span>Un descanso diferente</span>
+            <h2>Despertá rodeado de naturaleza</h2>
+            <p>
+                Imaginá comenzar el día con el aire puro de la montaña,
+                contemplar los paisajes patagónicos y salir a descubrir
+                lagos, bosques y senderos.
+            </p>
+            <p>
+                Elegí tu alojamiento teniendo en cuenta la ubicación,
+                los servicios, la temporada y las actividades que
+                quieras realizar.
+            </p>
+            <a href="destinos.html">EXPLORAR DESTINOS →</a>
+        </div>
+
+    </section>
+
+    <!-- CONSEJOS -->
+    <section class="stay-tips" id="consejos">
+
+        <h2>Consejos para tu estadía</h2>
+
+        <div class="stay-tips-grid">
+
+            <article class="stay-tip">
+                <span class="tip-icon">⌂</span>
+                <h3>Reservá con anticipación</h3>
+                <p>
+                    En vacaciones y temporada de nieve puede haber
+                    mucha demanda. Consultá disponibilidad y condiciones
+                    antes de viajar.
+                </p>
+            </article>
+
+            <article class="stay-tip">
+                <span class="tip-icon">◇</span>
+                <h3>Elegí la ubicación</h3>
+                <p>
+                    Revisá la distancia hasta los atractivos que querés
+                    visitar y las opciones de transporte disponibles.
+                </p>
+            </article>
+
+            <article class="stay-tip">
+                <span class="tip-icon">✓</span>
+                <h3>Consultá los servicios</h3>
+                <p>
+                    Confirmá horarios, equipamiento, formas de pago,
+                    políticas de cancelación y servicios incluidos.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <strong>CAVIAHUE</strong>
+        <p>NEUQUÉN · PATAGONIA ARGENTINA</p>
+        <p>Un lugar para conectar con la naturaleza.</p>
+    </footer>
+
+</body>
+</html>

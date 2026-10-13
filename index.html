@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caviahue | Neuquén</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="hero" id="inicio">
+
+        <div class="overlay"></div>
+
+        <!-- ENCABEZADO -->
+        <header class="header">
+
+            <a class="brand" href="index.html">
+                <svg class="brand-mountain" viewBox="0 0 120 42">
+                    <path d="M5 34 28 20 45 5 67 29 82 16 115 35"/>
+                </svg>
+                <span class="brand-name">CAVIAHUE</span>
+                <span class="brand-region">NEUQUÉN</span>
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <a class="active" href="index.html">Inicio</a>
+                <a href="destinos.html">Destinos</a>
+                <a href="actividades.html">Actividades</a>
+                <a href="alojamiento.html">Alojamiento</a>
+                <a href="gastronomia.html">Gastronomía</a>
+                <a href="como-llegar.html">Cómo llegar</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" type="button"
+                    aria-label="Buscar"
+                    onclick="document.querySelector('.search-panel').classList.toggle('show')">
+                    <svg viewBox="0 0 32 32">
+                        <circle cx="13.5" cy="13.5" r="8.5"/>
+                        <path d="m20 20 7 7"/>
+                    </svg>
+                </button>
+
+                <button class="icon-button menu-toggle" type="button"
+                    aria-label="Abrir menú"
+                    onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M3 7h26M3 16h26M3 25h26"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <form class="search-panel" onsubmit="event.preventDefault(); alert('Próximamente: búsqueda de destinos.');">
+                <input type="search" placeholder="¿Qué querés descubrir?">
+                <button type="submit">Buscar</button>
+            </form>
+
+        </header>
+
+        <!-- CONTENIDO CENTRAL -->
+        <section class="hero-content">
+
+            <p class="script-line">
+                Naturaleza que<br>
+                te hace bien
+            </p>
+
+            <h1>CAVIAHUE</h1>
+
+            <div class="region-title">
+                <span></span>
+                <p>NEUQUÉN</p>
+                <span></span>
+            </div>
+
+            <p class="intro">
+                Montañas, termas, lagos y una naturaleza única<br class="desktop-break">
+                te esperan en el corazón de la Patagonia.
+            </p>
+
+            <a class="discover-button" href="destinos.html">
+                DESCUBRÍ CAVIAHUE
+                <span>→</span>
+            </a>
+
+        </section>
+
+        <!-- ACCESOS INFERIORES -->
+        <nav class="highlights" aria-label="Experiencias">
+
+            <a class="highlight" href="destinos.html">
+                <svg viewBox="0 0 64 48">
+                    <path d="M3 42 22 20 30 29 43 7 61 42H3Z"/>
+                </svg>
+                <strong>MONTAÑAS</strong>
+                <span>y paisajes únicos</span>
+            </a>
+
+            <a class="highlight" href="destinos.html#lago">
+                <svg viewBox="0 0 64 48">
+                    <path d="M5 27c6-7 12 7 18 0s12 7 18 0 12 7 18 0"/>
+                    <path d="M5 37c6-7 12 7 18 0s12 7 18 0 12 7 18 0"/>
+                    <path d="M11 17l7-8 7 8M18 9v14"/>
+                </svg>
+                <strong>LAGO</strong>
+                <span>de Caviahue</span>
+            </a>
+
+            <a class="highlight" href="actividades.html#termas">
+                <svg viewBox="0 0 64 48">
+                    <path d="M32 44c-13 0-21-6-21-14 0-6 5-10 11-14"/>
+                    <path d="M32 44c13 0 21-6 21-14 0-6-5-10-11-14"/>
+                    <path d="M25 5c-7 7 7 9 0 16"/>
+                    <path d="M34 2c-7 7 7 9 0 16"/>
+                    <path d="M43 5c-7 7 7 9 0 16"/>
+                </svg>
+                <strong>TERMAS</strong>
+                <span>y bienestar</span>
+            </a>
+
+            <a class="highlight" href="destinos.html#flora-fauna">
+                <svg viewBox="0 0 64 48">
+                    <path d="M32 44V23M32 5 21 19h7L17 30h12L19 39h26L35 30h12L36 19h7L32 5Z"/>
+                </svg>
+                <strong>FLORA Y FAUNA</strong>
+                <span>autóctona</span>
+            </a>
+
+            <a class="highlight" href="actividades.html">
+                <svg viewBox="0 0 64 48">
+                    <circle cx="39" cy="8" r="5"/>
+                    <path d="m34 17-8 10 9 5 7-9 8 6M34 18l8 5M27 27l-8 8M35 32l-3 11M44 25l7-4 6 5M17 35l-3 8M52 29l-1 13"/>
+                </svg>
+                <strong>ACTIVIDADES</strong>
+                <span>todo el año</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+</body>
+</html>
